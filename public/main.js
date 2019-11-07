@@ -20,11 +20,37 @@ const main = () => {
     deck[j] = deck[i]
     deck[i] = swapper
   }
+  console.log(deck)
 }
+
+// const deckImages = () => {
+//   document.querySelector('.deckImages').textContent = '';
+//   for (let i = 0; i < deck.length; i++){
+//     const pic = document.createElement('div')
+//     const icon = ''
+//     if (deck[i].suits == 'Hearts') {
+//       icon='?'
+//     } 
+//     else if (deck[i].suits == 'Spades') {
+//     icon = '?'
+//     }
+//     else if (deck[i].suits =='Diamonds') {
+//     icon = '?'
+//     }
+//     else {
+//       icon = '?'
+    
+//     }
+//     pic.textContent = deck[i].values + '' + icon;
+//     pic.className = 'card'
+//     document.querySelector('.deckImages').appendChild(pic)
+
+// }
+// 
 
 const clickTheDeck = () => {
   document.querySelector('.cardResult').textContent = deck.pop()
 }
 
 document.addEventListener('DOMContentLoaded', main)
-document.querySelector('.deck').addEventListener('click', clickTheDeck)
+document.querySelector('.deal').addEventListener('click', clickTheDeck)

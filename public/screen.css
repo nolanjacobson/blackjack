@@ -8,5 +8,114 @@ html {
 
 body {
   margin: 0;
-  min-height: 100%;
+  height: 100%;
+  background-image: url(./images/poker-table-background_77211-140.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
 }
+
+.overlay {
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.mainFlex {
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.blackJack {
+  text-align: center;
+  color: white;
+  font-size: 5rem;
+  background: rgba(0, 0, 0, 0.2);
+  height: 100px;
+  margin-top: 0rem;
+  padding-top: 0.5rem;
+}
+
+.cardFlex {
+  height:50%;
+  width:auto;
+  display:flex;
+  justify-content:space-between;
+  padding:10rem;
+  list-style: none;
+}
+
+.cardFlex> h2 {
+  color:white;
+  
+}
+
+.playerCards {
+  border:10px solid white;
+  width: 40%
+}
+
+.dealerCards {
+  border:10px solid white;
+  width: 40%
+ 
+}
+
+.cardResult {
+  text-align: center;
+}
+
+.buttonFlex {
+  text-align:center;
+  padding-bottom:5rem;
+}
+
+.hitMe:hover {
+  color:white;
+  background-color:yellow;
+} 
+
+.stand:hover {
+  color:white;
+  background-color:yellow;
+} 
+
+.deal:hover {
+  color:white;
+  background-color:yellow;
+} 
+
+.hitMe {
+  border: red;
+  border-radius: 24px;
+  font-size: 3rem;
+  background-color: rgb(172, 39, 39);
+  height: auto;
+  width: 12rem;
+  color: white;
+  margin-right:10rem;
+}
+.stand {
+  border: blue;
+  border-radius: 24px;
+  font-size: 3rem;
+  background-color: rgb(59, 59, 184);
+  height: auto;
+  width: 12rem;
+  color: white;
+  margin-right:10rem;
+}
+
+.deal {
+  border: black;
+  border-radius: 24px;
+  font-size: 3rem;
+  background-color: gray;
+  height: auto;
+  width: 12rem;
+  color: black;
+} 

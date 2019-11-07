@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Shuffle Cards</title>
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/screen.css">
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/screen.css" />
   </head>
   <body>
+    <section class="overlay"></section>
 
-    <span class ="cardResult">Placeholder</span>
-    <button class="deck">Deck</button>
+    <section class="mainFlex">
+
+      <h1 class="blackJack">Black Jack</h1>
+
+      <section class="cardFlex">
+        <h2>User Cards</h2>
+      <ul class="playerCards"></ul>
+      
+        <h2>Dealer Cards</h2>
+      <ul class="dealerCards"></ul>
+      </section>
+
+      <div class="deckImages"></div>
+
+      <section class="buttonFlex">
+
+        <button class="hitMe">Hit Me</button>
+
+        <button class="stand">Stand</button>
+
+        <button class="deal">Deal</button>
+        
+      </section>
+    </section>
+
     <script src="/main.js" charset="utf-8"></script>
   </body>
 </html>
