@@ -9,18 +9,14 @@ html {
 body {
   margin: 0;
   height: 100%;
-  background-image: url(./images/poker-table-background_77211-140.jpg);
+  background-image: url(./background/poker-table-background_77211-140.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   object-fit: cover;
 }
 
-.overlay {
-  z-index: 1;
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  background: rgba(0, 0, 0, 0.2);
+.hide {
+  display:none;
 }
 
 .mainFlex {
@@ -40,33 +36,51 @@ body {
   padding-top: 0.5rem;
 }
 
+.title {
+  display:flex;
+  justify-content:space-evenly;
+  color:whitesmoke;
+  font-size:2rem;
+
+}
+
+#userCards {
+  /* spread out cards further*/
+  padding-right:40rem;
+}
 .cardFlex {
   height:50%;
   width:auto;
   display:flex;
   justify-content:space-between;
-  padding:10rem;
   list-style: none;
 }
 
 .cardFlex> h2 {
   color:white;
-  
 }
 
 .playerCards {
-  border:10px solid white;
-  width: 40%
+  display:flex;
+  flex-direction:row;
+  border:10px solid rgb(129, 129, 129);
+  width: 50%;
+}
+
+.playerCards li {
+  margin-left:-2.5rem;
 }
 
 .dealerCards {
-  border:10px solid white;
-  width: 40%
+  display:flex;
+  flex-direction:row;
+  border:10px solid rgb(129, 129, 129);
+  width: 50%;
  
 }
 
-.cardResult {
-  text-align: center;
+.dealerCards li {
+ margin-left: -2.5rem;
 }
 
 .buttonFlex {
@@ -76,17 +90,22 @@ body {
 
 .hitMe:hover {
   color:white;
-  background-color:yellow;
+  background-color:rgb(110, 0, 0);
 } 
 
 .stand:hover {
   color:white;
-  background-color:yellow;
+  background-color: rgb(0, 0, 100);
 } 
 
 .deal:hover {
-  color:white;
-  background-color:yellow;
+  color:black;
+  background-color: rgb(199, 199, 199);
+} 
+
+.reset:hover {
+  color:black;
+  background-color: red;
 } 
 
 .hitMe {
@@ -119,3 +138,17 @@ body {
   width: 12rem;
   color: black;
 } 
+.reset {
+  border: yellow;
+  border-radius: 24px;
+  font-size: 3rem;
+  background-color: yellow;
+  height: auto;
+  width: 12rem;
+  color: black;
+  margin-left:12rem;
+} 
+
+.hide {
+  display:none;
+}

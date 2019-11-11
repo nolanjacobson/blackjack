@@ -8,18 +8,25 @@
     <link rel="stylesheet" href="/screen.css" />
   </head>
   <body>
-    <section class="overlay"></section>
 
     <section class="mainFlex">
 
       <h1 class="blackJack">Black Jack</h1>
 
+      <section class ="title">
+        <h1 class ="userSum">0</h1>
+        <h2 id="userCards">User Cards</h2>
+        <h2 id="dealerCards">Dealer Cards</h2>
+        <h1 class ="dealerSum">0</h1>
+      </section>
+
       <section class="cardFlex">
-        <h2>User Cards</h2>
       <ul class="playerCards"></ul>
       
-        <h2>Dealer Cards</h2>
-      <ul class="dealerCards"></ul>
+      <ul class="dealerCards">
+        <li class="backOfCards"><img src= "background/red back.svg"></li>
+        <li class="backOfCards1"><img src= "background/red back.svg"></li>
+      </ul>
       </section>
 
       <div class="deckImages"></div>
@@ -29,8 +36,10 @@
         <button class="hitMe">Hit Me</button>
 
         <button class="stand">Stand</button>
-
+        
         <button class="deal">Deal</button>
+
+        <button class="reset">Reset</button>
         
       </section>
     </section>
