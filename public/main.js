@@ -26,6 +26,8 @@ let dealerSum = 0
 const main = () => {
   document.querySelector('.backOfCards').classList.add('hide')
   document.querySelector('.backOfCards1').classList.add('hide')
+  document.querySelector('.hitMe').disabled = true
+  document.querySelector('.stand').disabled = true
 }
 
 const deal = () => {
@@ -34,11 +36,13 @@ const deal = () => {
   shuffleDeck()
   dealUserHand()
   dealDealerHand()
+  document.querySelector('.hitMe').disabled = false
+  document.querySelector('.stand').disabled = false
 }
 
 const getCardValue = ranks => {
   if (ranks === 'Ace') {
-    return 11
+    return 11   
   } else if (ranks === 'King' || ranks === 'Queen' || ranks === 'Jack') {
     return 10
   } else {
@@ -70,16 +74,35 @@ const shuffleDeck = () => {
   console.log(deck)
 }
 
+//when I pass parameters into this function, what is it replacing?
+
+const aceOption = () => {
+  if (userSum > 21 && userHand.rank === 'Ace') {
+    const ace1 = userHand.value -= 10
+    userSum += ace1
+    console.log(ace1)
+  }
+}
+
 const dealDealerHand = () => {
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 1; i++) {
+    const drawnDealerCard = deck.pop()
+    dealerHand.push(drawnDealerCard)
+    const dealerHandLi = document.createElement('li')
+    const img = document.createElement('img')
+    img.src = './images/' + drawnDealerCard.imageUrl
+    dealerHandLi.appendChild(img)
+    document.querySelector('.dealerCards').appendChild(dealerHandLi)
+    dealerSum += drawnDealerCard.value
+    document.querySelector('.dealerSum').textContent = dealerSum
     document.querySelector('.backOfCards').classList.remove('hide')
-    document.querySelector('.backOfCards1').classList.remove('hide')
   }
 }
 
 const dealUserHand = () => {
 
   for (let i = 0; i < 2; i++) {
+    // why do I need to assign the deck.pop to a temp variable?
     const drawnUserCard = deck.pop()
     userHand.push(drawnUserCard)
     const userHandLi = document.createElement('li')
@@ -91,22 +114,14 @@ const dealUserHand = () => {
     document.querySelector('.userSum').textContent = userSum
   }
 
-  if (userSum > 21) {
-
-    document.querySelector('#userCards').textContent = 'BUST'
-    document.querySelector('#dealerCards').textContent = 'WINNER'
-    document.querySelector('button.hitMe').disabled = true
-    document.querySelector('.stand').disabled = true
-    document.querySelector('.deal').disabled = true
-}
-
-  else if (userSum === 21) {
+  if (userSum === 21) {
   document.querySelector('#userCards').textContent = 'WINNER'
   document.querySelector('#dealerCards').textContent = 'BUST'
   document.querySelector('.hitMe').disabled = true
   document.querySelector('.stand').disabled = true
   document.querySelector('.deal').disabled = true
-}
+ }
+
 
 }
 
@@ -124,7 +139,6 @@ const hitMe = () => {
     document.querySelector('.userSum').textContent = userSum
   }
   if (userSum > 21) {
-
     document.querySelector('#userCards').textContent = 'BUST'
     document.querySelector('#dealerCards').textContent = 'WINNER'
     document.querySelector('button.hitMe').disabled = true
@@ -143,7 +157,7 @@ const hitMe = () => {
 
 
 const hitDealer = () => {
-  let i = 0
+  let i = 1
   while (dealerSum <= 17) {
     document.querySelector('.backOfCards').classList.add('hide')
     document.querySelector('.backOfCards1').classList.add('hide')
@@ -179,8 +193,14 @@ const hitDealer = () => {
     document.querySelector('.stand').disabled = true
     document.querySelector('.deal').disabled = true
   }
+  else if (userSum > dealerSum) {
+    document.querySelector('#userCards').textContent = 'BUST'
+    document.querySelector('#dealerCards').textContent = 'WINNER'
+    document.querySelector('button.hitMe').disabled = true
+    document.querySelector('.stand').disabled = true
+    document.querySelector('.deal').disabled = true
 }
-
+}
 
 const reset = () => {
   location.reload()
@@ -191,5 +211,3 @@ document.querySelector('.deal').addEventListener('click', deal)
 document.querySelector('.stand').addEventListener('click', hitDealer)
 document.querySelector('.hitMe').addEventListener('click', hitMe)
 document.querySelector('.reset').addEventListener('click', reset)
-
-//How can I add within a scope and not have it reset to 0 when I leave the scope?
