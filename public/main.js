@@ -200,6 +200,14 @@ const hitDealer = () => {
     document.querySelector('.stand').disabled = true
     document.querySelector('.deal').disabled = true
 }
+
+  else if (dealerSum === userSum) {
+    document.querySelector('#userCards').textContent = 'Push'
+    document.querySelector('#dealerCards').textContent = 'Push - Dealer Wins'
+    document.querySelector('button.hitMe').disabled = true
+    document.querySelector('.stand').disabled = true
+    document.querySelector('.deal').disabled = true
+}
 }
 
 const reset = () => {
